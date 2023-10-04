@@ -1,6 +1,10 @@
-<h1>Blog App</h1>
-
 <a name="readme-top"></a>
+
+<div align="center">
+
+  <h1><b>OOP School Library</b></h1>
+
+</div>
 
 <!-- TABLE OF CONTENTS -->
 
@@ -70,6 +74,7 @@ In order to run this project you need:
 - Code Editor.
 - PostgreSQL.
 - Ruby On Rails.
+- Linters
 
 ### Setup
 
@@ -82,16 +87,21 @@ Clone this repository to your desired folder:
 
 ### Install
 
+Install this project with:
+
 - Install <a href="https://www.postgresql.org/">PostgreSQL</a>.
 - Install <a href="https://rubyonrails.org/">Ruby On Rails</a> using `rails new blog-app --database=postgresql` command.
+- 
+```sh
+  cd my-project
+  bundle install
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-
-👤 **Sana Tameem**
 
 👤 **Sana Tameem**
 
