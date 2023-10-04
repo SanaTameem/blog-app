@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h1><b>OOP School Library</b></h1>
+  <h1><b>Blog App</b></h1>
 
 </div>
 
@@ -91,7 +91,6 @@ Install this project with:
 
 - Install <a href="https://www.postgresql.org/">PostgreSQL</a>.
 - Install <a href="https://rubyonrails.org/">Ruby On Rails</a> using `rails new blog-app --database=postgresql` command.
-- 
 ```sh
   cd my-project
   bundle install
