@@ -63,7 +63,6 @@ RSpec.describe Post, type: :model do
       end
     end
 
-
     context 'Methods of post.rb' do
       it 'Should update post_counter when a new post is created' do
         user = User.create(name: 'Sana')
