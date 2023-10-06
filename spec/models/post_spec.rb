@@ -16,49 +16,51 @@ RSpec.describe Post, type: :model do
   end
 
   describe 'Validations' do
-    it 'Should return not valid for a blank title' do
-      myPost.title = nil
-      expect(myPost).to_not be_valid
+    context 'when checking post title' do
+      it 'Should return not valid for a blank title' do
+        myPost.title = nil
+        expect(myPost).to_not be_valid
+      end
+
+      it 'Should return not valid for a title more than 250 chars' do
+        myPost.title = 'Lorem' * 60
+
+        expect(myPost).to_not be_valid
+      end
     end
 
-    it 'Should return not valid for a title more than 250 chars' do
-      myPost.title = 'Lorem blalllllllllllllllllllllllllllll ipsum dolor sit amet, ' \
-                     'consectetur adipiscing elit. Sed auctor vestibulum velit, ' \
-                     'ut eleifend ante mattis in. Maecenas hendrerit, urna nec ' \
-                     'laoreet bibendum, velit dolor ultricies lorem, quis fermentum ' \
-                     'odio massa nec dui.'
+    context 'when checking comments_counter' do
+      it 'Should say not valid for non integer value of comment_counter' do
+        myPost.comments_counter = 'Something'
+        expect(myPost).to_not be_valid
+      end
 
-      expect(myPost).to_not be_valid
+      it 'Should say valid for an integer value of comment_counter' do
+        myPost.comments_counter = 0
+        expect(myPost).to be_valid
+      end
+
+      it 'Should say not valid for a value less than 0 for comment_counter' do
+        myPost.comments_counter = -3
+        expect(myPost).to_not be_valid
+      end
     end
 
-    it 'Should say not valid for non integer value of comment_counter' do
-      myPost.comments_counter = 'Something'
-      expect(myPost).to_not be_valid
-    end
+    context 'when checking likes_counter' do
+      it 'Should say not valid for non integer value of like_counter' do
+        myPost.likes_counter = 'Something'
+        expect(myPost).to_not be_valid
+      end
 
-    it 'Should say valid for an integer value of comment_counter' do
-      myPost.comments_counter = 0
-      expect(myPost).to be_valid
-    end
+      it 'Should say valid for an integer value of like_counter' do
+        myPost.likes_counter = 0
+        expect(myPost).to be_valid
+      end
 
-    it 'Should say not valid for a value less than 0 for comment_counter' do
-      myPost.comments_counter = -3
-      expect(myPost).to_not be_valid
-    end
-
-    it 'Should say not valid for non integer value of like_counter' do
-      myPost.likes_counter = 'Something'
-      expect(myPost).to_not be_valid
-    end
-
-    it 'Should say valid for an integer value of like_counter' do
-      myPost.likes_counter = 0
-      expect(myPost).to be_valid
-    end
-
-    it 'Should say not valid for a value less than 0 for like_counter' do
-      myPost.likes_counter = -3
-      expect(myPost).to_not be_valid
+      it 'Should say not valid for a value less than 0 for like_counter' do
+        myPost.likes_counter = -3
+        expect(myPost).to_not be_valid
+      end
     end
   end
 
