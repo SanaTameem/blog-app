@@ -5,31 +5,35 @@ RSpec.describe User, type: :model do
                   post_counter: 3)
 
   describe 'Validations' do
-    it 'Should return not valid for a blank name' do
-      user.name = nil
-      expect(user).to_not be_valid
+    context 'when checking name' do
+      it 'Should return not valid for a blank name' do
+        user.name = nil
+        expect(user).to_not be_valid
+      end
+
+      it 'Should return valid for an existing name' do
+        user.name = 'Tom'
+        expect(user).to be_valid
+      end
     end
 
-    it 'Should return valid for an existing name' do
-      user.name = 'Tom'
-      expect(user).to be_valid
-    end
+    context 'when checking post_counter' do
+      it 'Should not allow a non integer post_counter' do
+        user.post_counter = 'Something'
+        expect(user).to_not be_valid
+      end
 
-    it 'Should not allow a non integer post_counter' do
-      user.post_counter = 'Something'
-      expect(user).to_not be_valid
-    end
+      it 'Should allow an integer post_counter' do
+        user.post_counter = 7
+        expect(user).to be_valid
+        user.post_counter = 0
+        expect(user).to be_valid
+      end
 
-    it 'Should allow an integer post_counter' do
-      user.post_counter = 7
-      expect(user).to be_valid
-      user.post_counter = 0
-      expect(user).to be_valid
-    end
-
-    it 'Should not allow an integer lower than 0' do
-      user.post_counter = -1
-      expect(user).to_not be_valid
+      it 'Should not allow an integer lower than 0' do
+        user.post_counter = -1
+        expect(user).to_not be_valid
+      end
     end
   end
 
