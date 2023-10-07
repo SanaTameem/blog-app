@@ -52,5 +52,19 @@ RSpec.describe User, type: :model do
         expect(recent_posts).to_not include(first_post)
       end
     end
+
+    context 'Custom Method: #set_default_post_counter' do
+      it 'should set post_counter to 0 when post_counter is nil' do
+        user = User.new(name: 'Alice')
+        user.set_default_post_counter
+        expect(user.post_counter).to eq(0)
+      end
+
+      it 'should not change post_counter if it is already set' do
+        user = User.new(name: 'Bob', post_counter: 5)
+        user.set_default_post_counter
+        expect(user.post_counter).to eq(5)
+      end
+    end
   end
 end

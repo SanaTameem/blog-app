@@ -63,7 +63,7 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context 'Methods of post.rb' do
+    context '#Main Methods of post.rb' do
       it 'Should update post_counter when a new post is created' do
         user = User.create(name: 'Sana')
         post = Post.create(title: 'Hello World', author: user)
@@ -86,6 +86,32 @@ RSpec.describe Post, type: :model do
         comment6 = Comment.create(post: first_post, user: first_user, text: 'Bye!', created_at: 1.hours.ago)
         expect(first_post.five_recent_comments).to eq([comment6, comment5, comment4, comment3, comment2])
         expect(first_post.five_recent_comments).to_not include(comment1)
+      end
+    end
+
+    context 'Custom Method: #set_default_counters' do
+      it 'should set comments_counter to 0 when comments_counter is nil' do
+        post = Post.new(title: 'Hello')
+        post.set_default_counters
+        expect(post.comments_counter).to eq(0)
+      end
+
+      it 'should set likes_counter to 0 when likes_counter is nil' do
+        post = Post.new(title: 'Hi there')
+        post.set_default_counters
+        expect(post.likes_counter).to eq(0)
+      end
+
+      it 'should not change comments_counter if it is already set' do
+        post = Post.new(title: 'I am a programmer', comments_counter: 5)
+        post.set_default_counters
+        expect(post.comments_counter).to eq(5)
+      end
+
+      it 'should not change likes_counter if it is already set' do
+        post = Post.new(title: 'Bye Bye', likes_counter: 10)
+        post.set_default_counters
+        expect(post.likes_counter).to eq(10)
       end
     end
   end
