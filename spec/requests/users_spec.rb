@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe 'users_controller' do
+  describe 'Get /users' do
     context 'Get #index' do
       it 'returns a 200 status code' do
         get users_path
@@ -13,7 +13,7 @@ RSpec.describe 'Users', type: :request do
         expect(response).to render_template(:index)
       end
 
-      it 'shows tha body includes correct placeholder text' do
+      it 'shows that body includes correct placeholder text' do
         get users_path
         expect(response.body).to include('Lists all users')
       end
