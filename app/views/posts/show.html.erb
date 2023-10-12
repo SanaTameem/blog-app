@@ -1,1 +1,14 @@
-<h1>Shows a specific post for a specific user</h1>
+<div class = "specific-post-container">
+    <div class = "specific-user-posts">
+                <div class = "user-post">
+                    <div class ="user-post-counters">Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></div>
+                    <h3 class ="user-post-title"><%=@post.title%> by <%=@user.name%></h3>
+                    <p class ="user-post-text"><%=@post.text%></p>
+                </div>
+                <div class = "post-comments-container">
+                    <%@post.comments.each do |comment|%>
+                        <p><%=@user.name%>: <%=comment.text%></p>
+                    <%end%>
+                </div>
+    </div>
+</div>
