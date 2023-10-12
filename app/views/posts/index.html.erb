@@ -1,1 +1,28 @@
-<h1>Lists all posts for a specific user</h1>
+<div class="all-posts-container">
+    <div class = "user-info-part">
+        <img src = <%=@user.photo%> alt = "User photo" class = "specific-user-img">
+        <div class = "specific-user-info-container">
+            <h1 class = "user-name"><%=@user.name%></h1>
+            <h4 class = "user-post-num">Number of posts : <%=@user.post_counter%></h4>
+        </div>
+    </div>
+
+    <div class = "specific-user-posts">
+        <%@posts.each do |post|%>
+        <a href="<%=user_post_path(@user, post)%>" class = "all-comments-link">
+            <div class = "user-post">
+                <h3 class ="user-post-title"><%=post.title%></h3>
+                <p class ="user-post-text"><%=post.text%></p>
+                <div class ="user-post-counters">Comments: <%=post.comments_counter%>, Likes: <%=post.likes_counter%></div>
+            </div>
+            <div class = "post-comments-container">
+                <%post.five_recent_comments.each do |comment|%>
+                    <p><%=@user.name%>: <%=comment.text%></p>
+                <%end%>
+            </div>
+        </a>
+        <%end%>
+    </div>
+
+    <button class ="see-all-btn">Pagination</button>
+</div>
