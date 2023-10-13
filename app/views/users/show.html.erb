@@ -15,7 +15,9 @@
     <div class = "specific-user-posts">
         <%@user.recent_posts.each do |post|%>
             <div class = "user-post">
-                <h3 class ="user-post-title"><%=post.title%></h3>
+                <a href = "<%=user_post_path(@user,post)%>" class = "all-comments-link">
+                    <h3 class ="user-post-title"><%=post.title%></h3>
+                </a>
                 <p class ="user-post-text"><%=post.text%></p>
                 <div class ="user-post-counters">Comments: <%=post.comments_counter%>, Likes: <%=post.likes_counter%></div>
             </div>
