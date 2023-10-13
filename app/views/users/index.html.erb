@@ -1,1 +1,15 @@
-<h1>Lists all users</h1>
+<div class="users-container">
+    <ul class = "users-list">
+        <%@users.each do |user|%>
+            <li class = "user-item">
+                <a href = "<%=user_path(user)%>" class = "user-link">
+                    <img src = <%=user.photo%> alt = "User photo" class = "user-img">
+                    <div class = "user-info-container">
+                        <h1 class = "user-name"><%=user.name%></h1>
+                        <h4 class = "user-post-num">Number of posts : <%=user.post_counter%></h4>
+                    </div>
+                </a>
+            <li>
+        <%end%>
+    </ul>
+</div>

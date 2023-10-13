@@ -1,1 +1,31 @@
-<h1>Shows a specific user</h1>
+<div class = specific-user-container>
+    <div class = "user-info-part">
+        <img src = <%=@user.photo%> alt = "User photo" class = "specific-user-img">
+        <div class = "specific-user-info-container">
+            <h1 class = "user-name"><%=@user.name%></h1>
+            <h4 class = "user-post-num">Number of posts : <%=@user.post_counter%></h4>
+        </div>
+    </div>
+
+    <div class = "bio-container">
+        <h2 class= "bio-title">Bio</h2>
+        <p class = "bio-text"><%=@user.bio%></p>
+    </div>
+
+    <div class = "specific-user-posts">
+        <%@user.recent_posts.each do |post|%>
+            <div class = "user-post">
+                <a href = "<%=user_post_path(@user,post)%>" class = "all-comments-link">
+                    <h3 class ="user-post-title"><%=post.title%></h3>
+                </a>
+                <p class ="user-post-text"><%=post.text%></p>
+                <div class ="user-post-counters">Comments: <%=post.comments_counter%>, Likes: <%=post.likes_counter%></div>
+            </div>
+        <%end%>
+    </div>
+    
+    <a href = "<%=user_posts_path(@user)%>">
+        <button class ="see-all-btn">See all posts</button>
+    </a>
+</div>
+
