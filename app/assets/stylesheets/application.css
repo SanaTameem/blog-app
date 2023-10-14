@@ -254,3 +254,10 @@ body {
   flex-direction: column;
   margin: 50px 0;
 }
+
+.flash-msg{
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: #2d8d1a;
+}
