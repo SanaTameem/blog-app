@@ -1,0 +1,7 @@
+<h1>Likes #new Page</h1>
+
+<%= form_for :like, url: user_post_likes_path(@user, @post) do |f| %>
+    <div>
+        <%= f.submit%>
+    </div>
+<%end%>
