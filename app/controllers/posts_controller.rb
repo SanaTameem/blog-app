@@ -16,11 +16,11 @@ class PostsController < ApplicationController
 
   def create
     @user = current_user
-    @post = Post.new(params.require(:post).permit(:title,:text))
+    @post = Post.new(params.require(:post).permit(:title, :text))
     @post.author_id = current_user.id
 
     if @post.save
-      flash[:notice] = "Post was saved succesfully"
+      flash[:notice] = 'Post was saved succesfully'
       redirect_to user_post_path(@user, @post)
     else
       render :new
