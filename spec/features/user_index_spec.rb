@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "UserIndices", type: :feature do
+RSpec.feature 'UserIndices', type: :feature do
   before :each do
     @user1 = User.create(
       name: 'Sanam',
@@ -15,20 +15,20 @@ RSpec.feature "UserIndices", type: :feature do
       photo: 'https://www.shutterstock.com/image-photo/british-shorthair-kitten-silver-color-260nw-1510641710.jpg',
       post_counter: 1
     )
-  end 
+  end
 
-  it "Shows the content of the user#index page" do
+  it 'Shows the content of the user#index page' do
     visit root_path
-    #I can see the username of all other users.
+    # I can see the username of all other users.
     expect(page).to have_content(@user1.name)
     expect(page).to have_content(@user2.name)
-    #I can see the profile picture for each user.
+    # I can see the profile picture for each user.
     expect(page).to have_css("img[src='#{@user1.photo}']")
     expect(page).to have_css("img[src='#{@user2.photo}']")
-    #I can see the number of posts each user has written.
+    # I can see the number of posts each user has written.
     expect(page).to have_content("Number of posts : #{@user1.post_counter}")
     expect(page).to have_content("Number of posts : #{@user2.post_counter}")
-    #When I click on a user, I am redirected to that user's show page.
+    # When I click on a user, I am redirected to that user's show page.
     click_link @user1.name
     expect(page).to have_current_path(user_path(@user1))
   end

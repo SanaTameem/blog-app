@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "PostShows", type: :feature do
+RSpec.feature 'PostShows', type: :feature do
   before :each do
     @user1 = User.create(
       name: 'Alexander',
@@ -11,8 +11,8 @@ RSpec.feature "PostShows", type: :feature do
 
     @post = Post.create(
       author_id: @user1.id,
-      title: "First Post",
-      text: "First",
+      title: 'First Post',
+      text: 'First',
       comments_counter: 3,
       likes_counter: 0
     )
@@ -20,22 +20,22 @@ RSpec.feature "PostShows", type: :feature do
     @comment1 = Comment.create(
       user_id: @user1.id,
       post_id: @post.id,
-      text: "This is first comment"
+      text: 'This is first comment'
     )
     @comment2 = Comment.create(
       user_id: @user1.id,
       post_id: @post.id,
-      text: "This is Second comment"
+      text: 'This is Second comment'
     )
     @comment3 = Comment.create(
       user_id: @user1.id,
       post_id: @post.id,
-      text: "This is Third comment"
+      text: 'This is Third comment'
     )
   end
 
-  it "Shows the content of the post#show page" do
-    visit user_post_path(@user1,@post)
+  it 'Shows the content of the post#show page' do
+    visit user_post_path(@user1, @post)
     # I can see the post's title
     expect(page).to have_content(@post.title)
     # I can see who wrote the post
@@ -46,8 +46,8 @@ RSpec.feature "PostShows", type: :feature do
     expect(page).to have_content("Likes: #{@post.likes_counter}")
     # I can see the post body
     expect(page).to have_content(@post.text)
-    # I can see the username of each commentor
-    within(".post-comments-container") do
+    within('.post-comments-container') do
+      # I can see the username of each commentor
       expect(page).to have_content(@user1.name)
       # I can see the comment each commentor left
       expect(page).to have_content(@comment1.text)
