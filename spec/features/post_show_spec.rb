@@ -2,36 +2,16 @@ require 'rails_helper'
 
 RSpec.feature 'PostShows', type: :feature do
   before :each do
-    @user1 = User.create(
-      name: 'Alexander',
-      bio: 'Student from Afg',
-      photo: 'https://img.freepik.com/free-photo/view-adorable-kitten-with-simple-background_23-2150758084.jpg',
-      post_counter: 2
-    )
+    @user1 = User.create(name: 'Alexander', bio: 'Student from Afg',
+                         photo: 'https://img.freepik.com/free-photo/view-adorable-kitten-with-simple-background_23-2150758084.jpg',
+                         post_counter: 2)
 
-    @post = Post.create(
-      author_id: @user1.id,
-      title: 'First Post',
-      text: 'First',
-      comments_counter: 3,
-      likes_counter: 0
-    )
+    @post = Post.create(author_id: @user1.id, title: 'First Post',
+                        text: 'First', comments_counter: 3, likes_counter: 0)
 
-    @comment1 = Comment.create(
-      user_id: @user1.id,
-      post_id: @post.id,
-      text: 'This is first comment'
-    )
-    @comment2 = Comment.create(
-      user_id: @user1.id,
-      post_id: @post.id,
-      text: 'This is Second comment'
-    )
-    @comment3 = Comment.create(
-      user_id: @user1.id,
-      post_id: @post.id,
-      text: 'This is Third comment'
-    )
+    @comment1 = Comment.create(user_id: @user1.id, post_id: @post.id, text: 'This is first comment')
+    @comment2 = Comment.create(user_id: @user1.id, post_id: @post.id, text: 'This is Second comment')
+    @comment3 = Comment.create(user_id: @user1.id, post_id: @post.id, text: 'This is Third comment')
   end
 
   it 'Shows the content of the post#show page' do

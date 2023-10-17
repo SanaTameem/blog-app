@@ -2,43 +2,14 @@ require 'rails_helper'
 
 RSpec.feature 'UserShows', type: :feature do
   before :each do
-    @user = User.create(
-      name: 'Sanam',
-      bio: 'Student from Afg',
-      photo: 'https://img.freepik.com/free-photo/view-adorable-kitten-with-simple-background_23-2150758084.jpg',
-      post_counter: 4
-    )
-
-    @post1 = Post.create(
-      author_id: @user.id,
-      title: 'First Post',
-      text: 'First',
-      comments_counter: 2,
-      likes_counter: 3
-    )
-
-    @post2 = Post.create(
-      author_id: @user.id,
-      title: 'Second Post',
-      text: 'Second',
-      comments_counter: 1,
-      likes_counter: 0
-    )
-    @post3 = Post.create(
-      author_id: @user.id,
-      title: 'Third Post',
-      text: 'Third',
-      comments_counter: 1,
-      likes_counter: 3
-    )
-
-    @post4 = Post.create(
-      author_id: @user.id,
-      title: 'Fourth Post',
-      text: 'Fourth',
-      comments_counter: 0,
-      likes_counter: 2
-    )
+    @user = User.create(name: 'Sanam', bio: 'Student from Afg',
+                        photo: 'https://adorable-kitten.jpg', post_counter: 4)
+    @post1 = Post.create(author_id: @user.id, title: 'First Post', text: 'First', comments_counter: 2, likes_counter: 3)
+    @post2 = Post.create(author_id: @user.id, title: 'Second Post', text: 'Second', comments_counter: 1,
+                         likes_counter: 0)
+    @post3 = Post.create(author_id: @user.id, title: 'Third Post', text: 'Third', comments_counter: 1, likes_counter: 3)
+    @post4 = Post.create(author_id: @user.id, title: 'Fourth Post', text: 'Fourth', comments_counter: 0,
+                         likes_counter: 2)
   end
 
   it 'Shows the content of the user#show page' do

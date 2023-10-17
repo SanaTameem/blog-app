@@ -2,40 +2,16 @@ require 'rails_helper'
 
 RSpec.feature 'PostIndices', type: :feature do
   before :each do
-    @user = User.create(
-      name: 'Alexander',
-      bio: 'Student from Afg',
-      photo: 'https://img.freepik.com/free-photo/view-adorable-kitten-with-simple-background_23-2150758084.jpg',
-      post_counter: 2
-    )
-
-    @post1 = Post.create(
-      author_id: @user.id,
-      title: 'First Post',
-      text: 'First',
-      comments_counter: 1,
-      likes_counter: 0
-    )
-
-    @post2 = Post.create(
-      author_id: @user.id,
-      title: 'Second Post',
-      text: 'Second',
-      comments_counter: 1,
-      likes_counter: 0
-    )
-
-    @comment1 = Comment.create(
-      user_id: @user.id,
-      post_id: @post1.id,
-      text: 'This is first comment'
-    )
-
-    @comment2 = Comment.create(
-      user_id: @user.id,
-      post_id: @post2.id,
-      text: 'This is Third comment'
-    )
+    @user = User.create(name: 'Alexander', bio: 'Student from Afg',
+                        photo: 'https://img.freepik.com/kitten-background_23-2150758084.jpg', post_counter: 2)
+    @post1 = Post.create(author_id: @user.id, title: 'First Post',
+                         text: 'First', comments_counter: 1, likes_counter: 0)
+    @post2 = Post.create(author_id: @user.id, title: 'Second Post',
+                         text: 'Second', comments_counter: 1, likes_counter: 0)
+    @comment1 = Comment.create(user_id: @user.id, post_id: @post1.id,
+                               text: 'This is first comment')
+    @comment2 = Comment.create(user_id: @user.id, post_id: @post2.id,
+                               text: 'This is Third comment')
   end
 
   it 'Shows the content of the post#index page' do
