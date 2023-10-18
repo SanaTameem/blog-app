@@ -277,7 +277,7 @@ body {
 }
 
 /* LOG IN PAGE */
-.log-in-page {
+.log-in-page, .forgot-page, .change-password-page{
   width: 100%;
   display: flex;
   justify-content: center;
