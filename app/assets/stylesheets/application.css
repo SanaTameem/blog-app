@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex-direction: column;
 }
 
 .users-list {
@@ -255,9 +256,82 @@ body {
   margin: 50px 0;
 }
 
-.flash-msg {
+.flash-msg,
+.notice {
   margin-top: 10px;
   font-size: 20px;
   text-align: center;
   color: #2d8d1a;
+}
+
+.alert {
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #eb0000;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 35px;
+}
+
+/* LOG IN PAGE */
+.log-in-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 6px;
+}
+
+.new_user {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field {
+  width: 60%;
+}
+
+.actions {
+  width: 60%;
+  margin-top: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 6px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 6px;
+}
+
+/* SIGN UP PAGE */
+.sign-up- {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+
+.sign-up-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
