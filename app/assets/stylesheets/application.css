@@ -11,7 +11,7 @@ body {
 }
 
 .users-container {
-  margin-top: 50px;
+  margin: 50px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -234,6 +234,7 @@ body {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 5px 5px 5px 0 #888;
+  gap: 8px;
 }
 
 .all-comments-link {
@@ -254,6 +255,7 @@ body {
   width: 100%;
   flex-direction: column;
   margin: 50px 0;
+  gap: 25px;
 }
 
 .flash-msg,
@@ -279,7 +281,10 @@ body {
 /* LOG IN PAGE */
 .log-in-page,
 .forgot-page,
-.change-password-page {
+.change-password-page,
+.new-comment-page,
+.new-like-page,
+.new-post-page {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -336,4 +341,49 @@ input[type="submit"] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.add-comment-btn,
+.add-like-btn,
+.log-out-btn,
+.add-new-post-btn {
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 5px 5px 5px 0 #888;
+  color: #000;
+  text-decoration: none;
+}
+
+.delete-comment-btn {
+  padding: 4px 10px;
+  color: red;
+}
+
+.new-comment-form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.text-area-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text-area-container textarea {
+  width: 100%;
+  font-size: 22px;
+}
+
+.post-see-all-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
