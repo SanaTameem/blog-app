@@ -25,5 +25,10 @@
         <%end%>
     </div>
 
-    <button class ="see-all-btn">Pagination</button>
+    <div class = "post-see-all-btn-container">
+        <% if @user == current_user %>
+            <%= link_to "Add New Post", new_user_post_path(@user), class: "add-new-post-btn" %>
+        <% end %>
+        <button class ="see-all-btn">Pagination</button>
+    </div>
 </div>

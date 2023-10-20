@@ -1,11 +1,13 @@
-<h1>Comments #new Page</h1>
+<div class = "new-comment-page">
+    <h1>Comments #new Page</h1>
 
-<%= form_for :comment, url: user_post_comments_path(@user, @post) do |f| %>
-    <div>
-    Comment Text : <br>
-        <%= f.text_area :text %>
-    </div>
-    <div>
-        <%= f.submit%>
-    </div>
-<%end%>
+    <%= form_for :comment, url: user_post_comments_path(@user, @post), html: { class: "new-comment-form" } do |f| %>
+        <div class = "text-area-container">
+        Comment Text : <br>
+            <%= f.text_area :text %>
+        </div>
+        <div>
+            <%= f.submit%>
+        </div>
+    <%end%>
+</div>

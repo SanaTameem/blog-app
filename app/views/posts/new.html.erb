@@ -1,17 +1,28 @@
-<h1>Posts #new Page</h1>
+<div class = "new-post-page">
+    <h1>This is the posts #new Page</h1>
 
-<%= form_for :post, url: user_posts_path(@user) do |f|%>
-    <div>
-        Post Title : 
-        <%= f.text_field :title%>
-    </div>
+    <% if @post.errors.any? %>
+        <h3>The following errors prevented your post from being saved.</h3>
+        <ul>
+            <%@post.errors.full_messages.each do |msg|%>
+                <li><%=msg%></li>
+            <%end%>
+        </ul>
+    <%end%>
 
-    <div>
-        Post Text : 
-        <%= f.text_field :text%>
-    </div>
+    <%= form_for :post, url: user_posts_path(@user) do |f|%>
+        <div>
+            Post Title : 
+            <%= f.text_field :title%>
+        </div>
 
-    <div>
-        <%= f.submit%>
-    </div>
-<%end%>
+        <div>
+            Post Text : 
+            <%= f.text_field :text%>
+        </div>
+
+        <div>
+            <%= f.submit%>
+        </div>
+    <%end%>
+</div>

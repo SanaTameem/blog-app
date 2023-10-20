@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post, class_name: 'Post'
 
   after_save :update_comments_counter
+  after_destroy :update_comments_counter
 
   def author=(user)
     self.user_id = user.id
