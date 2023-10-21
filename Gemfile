@@ -17,9 +17,9 @@ gem 'devise'
 gem 'cancancan'
 
 # display Swagger UI
-gem "rswag-ui"
+gem 'rswag-ui'
 # make API requests from Swagger UI
-gem "rswag-api"
+gem 'rswag-api'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
