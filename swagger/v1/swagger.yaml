@@ -1,0 +1,71 @@
+openapi: 3.0.3
+info:
+  title: Blog App API
+  version: v1
+paths:
+  /api/v1/users/{user_id}/posts:
+    get:
+      summary: List Posts for a User
+      tags:
+        - Posts
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success - Posts listed
+        '401':
+          description: Unauthorized
+
+  /api/v1/posts/{post_id}/comments:
+    get:
+      summary: List Comments for a Post
+      tags:
+        - Comments
+      parameters:
+        - name: post_id
+          in: path
+          description: Post ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success - Comments listed
+        '401':
+          description: Unauthorized
+
+    post:
+      summary: Add a Comment to a Post
+      tags:
+        - Comments
+      parameters:
+        - name: post_id
+          in: path
+          description: Post ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Success - Comment created
+        '422':
+          description: Unprocessable Entity
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+                - text
+servers:
+  - url: https://127.0.0.1:3000/
