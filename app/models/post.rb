@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :likes
 
   after_save :update_posts_counter
+  after_destroy :update_posts_counter
   after_initialize :set_default_counters
 
   def set_default_counters

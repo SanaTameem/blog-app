@@ -18,12 +18,17 @@
             </div>
             <div class = "post-comments-container">
                 <%post.five_recent_comments.each do |comment|%>
-                    <p><%=@user.name%>: <%=comment.text%></p>
+                    <p><%=comment.user.name%>: <%=comment.text%></p>
                 <%end%>
             </div>
         </a>
         <%end%>
     </div>
 
-    <button class ="see-all-btn">Pagination</button>
+    <div class = "post-see-all-btn-container">
+        <% if @user == current_user %>
+            <%= link_to "Add New Post", new_user_post_path(@user), class: "add-new-post-btn" %>
+        <% end %>
+        <button class ="see-all-btn">Pagination</button>
+    </div>
 </div>

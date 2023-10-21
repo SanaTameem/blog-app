@@ -11,7 +11,7 @@ class LikesController < ApplicationController
     @like = Like.new(user_id: @user.id, post_id: @post.id)
     if @like.save
       flash[:notice] = 'Like was saved succesfully'
-      redirect_to user_post_path(@user, @post)
+      redirect_to user_post_path(@post.author_id, @post)
     else
       flash[:alert] = 'Could not save the like'
     end
