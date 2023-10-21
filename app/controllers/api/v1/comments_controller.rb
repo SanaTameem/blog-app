@@ -5,7 +5,7 @@ class Api::V1::CommentsController < ApplicationController
 
   def index
     @comments = Post.includes(:comments).find(params[:post_id]).comments
-    pretty_json = JSON.pretty_generate(success: true, data: {commetns: @comments.as_json})
+    pretty_json = JSON.pretty_generate(success: true, data: { commetns: @comments.as_json })
     render json: pretty_json, status: :ok
   end
 
