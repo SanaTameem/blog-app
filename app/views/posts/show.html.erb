@@ -5,14 +5,14 @@
                     <div class ="user-post-counters">Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></div>
                     <h3 class ="user-post-title"><%=@post.title%> by <%=@user.name%></h3>
                     <p class ="user-post-text"><%=@post.text%></p>
-                    <%if @post.author == current_user || can?(:destroy, @post)%>
+                    <%if can?(:destroy, @post)%>
                         <%= button_to 'Delete', user_post_path(user_id: @post.author_id, id: @post.id), method: :delete, data: {confirm: 'Are you sure you want to delete this post ?'} %>
                     <% end %>
                 </div>
                 <div class = "post-comments-container">
                     <%@post.comments.each do |comment|%>
                         <p><%=comment.user.name%>: <%=comment.text%></p>
-                        <% if comment.user == current_user || can?(:destroy, comment)%>
+                        <% if can?(:destroy, comment)%>
                             <%= button_to 'Delete Comment', user_post_comment_path(user_id: comment.user_id, post_id: comment.post_id, id: comment.id), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' }, class: "delete-comment-btn"%>
                         <% end %>
                     <%end%>
